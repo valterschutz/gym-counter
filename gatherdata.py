@@ -22,10 +22,11 @@ while True:
         if result > oldresult + 50:  # Most likely an error
             sleep(1)
             continue
-        timestr = datetime.now().strftime('%H:%M')
-        print(timestr, result)
-        f = open(f'{str(datetime.today().date())}.csv', 'a')
-        f.write(f"{timestr},{result}\n")
+        timestr, weekdaystr = datetime.now().strftime('%H:%M %A').split()
+        datestr = str(datetime.today().date())
+        print(timestr, weekdaystr, result)
+        f = open(f'data/{datestr}.csv', 'a')
+        f.write(f"{timestr},{weekdaystr},{result}\n")
         f.close()
         oldresult = result
         sleep(60)
