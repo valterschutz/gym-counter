@@ -6,7 +6,7 @@ from pyvirtualdisplay import Display
 
 display = Display(visible=False, size=(800,600))
 display.start()
-print("Display started")
+print("Display started.")
 
 # options = webdriver.FirefoxOptions()
 # options.add_argument("--headless")
@@ -15,14 +15,21 @@ print("Display started")
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
 browser = webdriver.Chrome(options=options)
-print("Browser started")
+print("Browser started.")
 
 
 browser.get('http://api.rscount.se/rs/counter/000B91906EDA')
-print("Website accessed, wait 30s")
+print("Website accessed, wait 30s to allow page to load.")
 
 
 sleep(30)  # Allow page to load
+
+# Create folder for storing data
+if not os.path.isdir('data'):
+    print("Data directory not present. Creating new one...")
+    os.mkdir('data')
+else:
+    print("Data directory present.")
 
 # Main loop, run for several days and make new data file for each day
 while True:
