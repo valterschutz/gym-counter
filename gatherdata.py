@@ -6,6 +6,7 @@ from pyvirtualdisplay import Display
 
 display = Display(visible=False, size=(800,600))
 display.start()
+print("Display started")
 
 # options = webdriver.FirefoxOptions()
 # options.add_argument("--headless")
@@ -14,9 +15,11 @@ display.start()
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
 browser = webdriver.Chrome(options=options)
+print("Browser started")
 
 
 browser.get('http://api.rscount.se/rs/counter/000B91906EDA')
+print("Website accessed, wait 30s")
 
 
 sleep(30)  # Allow page to load
