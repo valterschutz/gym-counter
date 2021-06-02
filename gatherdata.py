@@ -2,14 +2,24 @@ from datetime import datetime
 from time import sleep
 import pandas as pd
 from selenium import webdriver
+from pyvirtualdisplay import Display
 
-options = webdriver.FirefoxOptions()
+display = Display(visible=False, size=(800,600))
+display.start()
+
+# options = webdriver.FirefoxOptions()
+# options.add_argument("--headless")
+# browser = webdriver.Firefox(options=options)
+
+options = webdriver.ChromeOptions()
 options.add_argument("--headless")
-browser = webdriver.Firefox(options=options)
+browser = webdriver.Chrome(options=options)
+
+
 browser.get('http://api.rscount.se/rs/counter/000B91906EDA')
 
 
-sleep(5)  # Allow page to load
+sleep(30)  # Allow page to load
 
 # Main loop, run for several days and make new data file for each day
 while True:
