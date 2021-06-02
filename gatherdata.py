@@ -1,5 +1,6 @@
 from datetime import datetime
 from time import sleep
+import os
 import pandas as pd
 from selenium import webdriver
 from pyvirtualdisplay import Display
