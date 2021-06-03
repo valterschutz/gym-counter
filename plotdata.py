@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 import matplotlib.pyplot as plt
 import matplotlib as mpl
@@ -5,7 +6,11 @@ import seaborn as sns
 import pandas as pd
 sns.set_theme()
 
-date = input("Choose a date to plot: ").strip()
+i = input("Choose a date to plot: ").strip()
+if i == "today":
+    date = datetime.now().strftime("%Y-%m-%d")
+else:
+    date = i
 
 if not os.path.exists(f"data/{date}.csv"):
     print(f'The file "data/{date}.csv" does not exist.')
