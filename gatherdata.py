@@ -5,7 +5,7 @@ import pandas as pd
 from selenium import webdriver
 from pyvirtualdisplay import Display
 
-display = Display(visible=False, size=(800,600))
+display = Display(visible=False, size=(800, 600))
 display.start()
 print("Display started.")
 
@@ -16,6 +16,7 @@ print("Display started.")
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
 browser = webdriver.Chrome(options=options)
+
 print("Browser started.")
 
 
@@ -51,4 +52,3 @@ while True:
         f.close()
         oldresult = result
         sleep(60)
-
